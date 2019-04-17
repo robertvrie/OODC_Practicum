@@ -21,8 +21,7 @@ public class Klas {
 	        if(naam.contentEquals(nm)) {
 	        	l.setCijfer(nweCijfer);
 	        }
-	      }
-		//deLeerlingen.set());
+	    }
 	}
 	
 	public ArrayList<Leerling> getLeerlingen() {
