@@ -1,11 +1,13 @@
 package practicum6A;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public class Game {
 	public String naam;
 	public int releaseJaar;
 	public double nieuwPrijs;
+	DecimalFormat df = new DecimalFormat("#.00");
 	
 	public Game(String nm, int rJ, double nwpr) {
 		naam = nm;

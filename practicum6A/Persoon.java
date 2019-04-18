@@ -47,27 +47,45 @@ public class Persoon {
 		}
 		
 		for(Game game : koper.mijnGames) {
-			boolean i = false;
-			if(i == g.getNaam().contentEquals(game.getNaam())) {
+			if(g.getNaam().contentEquals(game.getNaam())) {
+				break;
+			}
+			else {
 				if(koper.budget >= g.huidigeWaarde()) {
 					koperHeeftGameNietEnGenoegBudget = true;
+					break;
 				}
 			}
 		}
 		
 		if(verkoperHeeftGame == true && koperHeeftGameNietEnGenoegBudget == true) {
-			kanVerkopen = true;
 			mijnGames.remove(g);
 			koper.mijnGames.add(g);
-			koper.budget = budget - g.huidigeWaarde();
+			koper.budget = koper.budget - g.huidigeWaarde();
 			budget = budget + g.huidigeWaarde();
+			kanVerkopen = true;
 		}
 		return kanVerkopen;
 		
 	}
 	
+	Game zoekGameOpNaam(String gameNaam) {
+		Game gelijk = null;
+		for(Game g : mijnGames) {
+			if(gameNaam.equals(g.getNaam())) {
+				gelijk = g;
+			}
+		}
+		return gelijk;
+		
+	}
+	
 	public String toString() {
-		String s = "";
+		StringBuilder s = new StringBuilder();
+		s.append(naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:\n	");
+		for(Game g : mijnGames) {
+			s.append(g.getNaam() + ", uitgegeven in 2014; nieuwprijs: " + g.nieuwPrijs + " nu voor: " + String.format("%.2f", g.huidigeWaarde()) + "\n	");
+		}
 		return s.toString();
 	}
 }
