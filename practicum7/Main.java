@@ -1,11 +1,14 @@
 package practicum7;
+
+import java.time.LocalDate;
+
 public class Main {
   public static void main(String[] args) {
-    BedrijfsInventaris inventaris = new BedrijfsInventaris("HU", 2000000);
+	BedrijfsInventaris inventaris = new BedrijfsInventaris("HU", 2000000);
     int ditJaar = LocalDate.now().getYear();
     int vorigJaar = LocalDate.now().getYear()-1;
 		
-    Computer c1 = new Computer("EliteBook 850","00:0C:6E:D2:11:E6", 1311.30, vorigJaar);
+    Computer c1 = new Computer("EliteBook 850", "00:0C:6E:D2:11:E6", 1311.30, vorigJaar);
     Computer c2 = new Computer("EliteBook 850", "00:0C:6E:D2:11:E6", 1311.30, vorigJaar);
     Computer c3 = new Computer("EliteBook 840", "00:0C:6E:00:D2:A6", 1499.29, vorigJaar);
     Auto a1 = new Auto("Mercedes-Benz A-klasse A 180", 29995.00, vorigJaar, "4-ZTV-94");
